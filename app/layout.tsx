@@ -118,6 +118,9 @@ const localBusinessSchema = {
   },
 };
 
+// GTM container ID — replace GTM-XXXXXXX with the real ID from tagmanager.google.com
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -130,8 +133,31 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        {/* Google Tag Manager — loads when GTM_ID env var is set */}
+        {GTM_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
+        )}
       </head>
       <body className="antialiased bg-white text-gray-900">
+        {/* GTM noscript fallback */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
         <Navbar />
         <main>{children}</main>
         <Footer />
