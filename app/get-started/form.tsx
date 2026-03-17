@@ -2,55 +2,43 @@
 import { useState, FormEvent } from "react";
 
 export default function GetStartedForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
+    setStatus("submitting");
+
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const firstName = data.get("first-name") || "";
-    const lastName = data.get("last-name") || "";
-    const company = data.get("company") || "";
-    const email = data.get("email") || "";
-    const phone = data.get("phone") || "";
-    const interest = data.get("interest") || "";
-    const teamSize = data.get("team-size") || "";
-    const message = data.get("message") || "";
+    try {
+      const res = await fetch("https://formspree.io/f/xdawpbav", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
 
-    const subject = `Enquiry from ${firstName} ${lastName} – ${company}`;
-    const body = `Name: ${firstName} ${lastName}
-Company: ${company}
-Email: ${email}
-Phone: ${phone}
-Interested in: ${interest}
-Team size: ${teamSize}
-
-Message:
-${message}`;
-
-    window.location.href = `mailto:sales@calystro.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Show success after short delay
-    setTimeout(() => {
-      setSubmitted(true);
-      setSubmitting(false);
-    }, 500);
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="bg-bg-light rounded-2xl p-8 text-center">
         <div className="text-5xl mb-4">✅</div>
-        <h2 className="text-xl font-bold text-primary mb-3">Your email client should have opened</h2>
-        <p className="text-gray-500 mb-4">
-          Your enquiry has been pre-filled and ready to send to <strong>sales@calystro.com</strong>. 
-          If it didn&apos;t open automatically, email us directly at{" "}
-          <a href="mailto:sales@calystro.com" className="text-accent underline">sales@calystro.com</a> 
-          {" "}or call{" "}
-          <a href="tel:0272293600" className="text-accent underline">02 7229 3600</a>.
+        <h2 className="text-2xl font-bold text-primary mb-3">Enquiry received!</h2>
+        <p className="text-gray-500 text-lg">
+          Thanks for reaching out. We&apos;ll be in touch within one business day.
+          <br />
+          Prefer to talk now? Call us on{" "}
+          <a href="tel:0272293600" className="text-accent font-semibold">02 7229 3600</a>.
         </p>
       </div>
     );
@@ -59,10 +47,18 @@ ${message}`;
   return (
     <div className="bg-bg-light rounded-2xl p-8">
       <h2 className="text-xl font-bold text-primary mb-6">Send us a message</h2>
+
+      {status === "error" && (
+        <div className="mb-5 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-sm">
+          Something went wrong. Please try again or call us on{" "}
+          <a href="tel:0272293600" className="underline">02 7229 3600</a>.
+        </div>
+      )}
+
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="first-name">First name</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="first-name">First name *</label>
             <input
               id="first-name"
               name="first-name"
@@ -73,7 +69,7 @@ ${message}`;
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="last-name">Last name</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="last-name">Last name *</label>
             <input
               id="last-name"
               name="last-name"
@@ -86,7 +82,7 @@ ${message}`;
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="company">Company name</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="company">Company name *</label>
           <input
             id="company"
             name="company"
@@ -99,7 +95,7 @@ ${message}`;
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="email">Email address</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5" htmlFor="email">Work email *</label>
             <input
               id="email"
               name="email"
@@ -170,10 +166,10 @@ ${message}`;
 
         <button
           type="submit"
-          disabled={submitting}
+          disabled={status === "submitting"}
           className="w-full bg-accent hover:bg-cyan-400 disabled:opacity-60 text-white py-3 rounded-lg font-semibold text-lg transition-colors"
         >
-          {submitting ? "Preparing…" : "Send Enquiry"}
+          {status === "submitting" ? "Sending…" : "Send Enquiry"}
         </button>
 
         <p className="text-xs text-gray-400 text-center">
