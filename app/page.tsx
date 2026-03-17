@@ -258,6 +258,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 px-4 bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What our customers say</h2>
+            <p className="text-blue-200 text-lg">Australian businesses that made the switch to Calystro.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/20">
+              <p className="text-blue-100 leading-relaxed mb-6">&ldquo;We had a terrible experience with our previous provider — our phones only sometimes worked. Since moving to Calystro our phones are always working and we operate as a high-performing inbound sales team, not one responding to voice messages.&rdquo;</p>
+              <div>
+                <div className="font-bold text-white">Alevo</div>
+                <div className="text-blue-300 text-sm">Inbound Sales Team</div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/20">
+              <p className="text-blue-100 leading-relaxed mb-6">&ldquo;We were getting ripped off by our previous provider. Now my system works so much better and is more cost effective.&rdquo;</p>
+              <div>
+                <div className="font-bold text-white">Two Wheel Obsession</div>
+                <div className="text-blue-300 text-sm">Retail</div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/20">
+              <p className="text-blue-100 leading-relaxed mb-6">&ldquo;We run a complicated network for a large hotel. The Calystro team always answer the phone to give us assistance at any time of day. Excellent service!&rdquo;</p>
+              <div>
+                <div className="font-bold text-white">The GEM Hotel</div>
+                <div className="text-blue-300 text-sm">Hospitality</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="bg-bg-light py-20 px-4">
         <div className="max-w-4xl mx-auto">
