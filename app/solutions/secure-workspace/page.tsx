@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Secure Workspace",
-  description: "Layered network security for Australian businesses — from the internet edge to every device. Intrusion prevention, content filtering, and more.",
+  title: "Secure Business Internet & Network | Cisco Meraki",
+  description:
+    "Protect your business with enterprise-grade Cisco Meraki firewall, VPN, and malware protection — included in every Calystro internet plan. No extras needed.",
+  alternates: {
+    canonical: "https://calystro.com/solutions/secure-workspace",
+  },
+  openGraph: {
+    title: "Secure Business Internet & Network | Cisco Meraki | Calystro",
+    description:
+      "Protect your business with enterprise-grade Cisco Meraki firewall, VPN, and malware protection — included in every Calystro internet plan. No extras needed.",
+    url: "https://calystro.com/solutions/secure-workspace",
+  },
 };
 
 export default function SecureWorkspacePage() {

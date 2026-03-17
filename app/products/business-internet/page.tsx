@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Business Internet – Secure NBN",
-  description: "Business-grade NBN internet with Cisco Meraki security gateway built in. Intrusion prevention, malware protection, VPN, and more. From $190/mo.",
+  title: "Business NBN Plans with Security Included | Calystro",
+  description: "Managed business internet from $190/month. Cisco Meraki firewall, VPN & malware protection included. nbn eSLA. Aussie Broadband network. Get a quote.",
 };
 
 const plans = [
@@ -42,33 +42,57 @@ const plans = [
 ];
 
 const securityFeatures = [
-  { icon: "🛡️", name: "Intrusion Prevention", desc: "Real-time detection and blocking of network intrusion attempts." },
-  { icon: "🦠", name: "Malware Protection", desc: "Advanced malware scanning across all traffic entering your network." },
-  { icon: "🔍", name: "Content Filtering", desc: "Block inappropriate or unsafe web content for your entire network." },
-  { icon: "🌍", name: "GeoIP Blocking", desc: "Block traffic from high-risk countries and regions automatically." },
-  { icon: "🔥", name: "Layer 7 Firewall", desc: "Application-aware firewall rules — control access by app, not just port." },
-  { icon: "🔐", name: "Remote VPN", desc: "Secure remote access for your team — work from anywhere safely." },
-  { icon: "🔗", name: "Site-to-Site VPN", desc: "Connect multiple offices or branches securely over the internet." },
-  { icon: "🔧", name: "Proactive Maintenance", desc: "We monitor and maintain your gateway — you focus on your business." },
+  { icon: "🛡️", name: "Meraki MX Firewall", desc: "Enterprise-grade stateful firewall managed in the cloud. Protect your network from the moment you're connected." },
+  { icon: "🦠", name: "Advanced Malware Protection", desc: "Cisco AMP-powered malware scanning across all traffic entering your network — catches threats before they reach your devices." },
+  { icon: "🔍", name: "Content Filtering", desc: "Block inappropriate or unsafe web content across your entire network with Meraki's always-updated category database." },
+  { icon: "🌍", name: "GeoIP Blocking", desc: "Automatically block traffic from high-risk countries and regions — reducing your attack surface with zero configuration." },
+  { icon: "🔥", name: "Layer 7 Application Firewall", desc: "Application-aware firewall rules — control access by app, not just port. Block streaming, social media, or anything else during business hours." },
+  { icon: "🔐", name: "Cisco AnyConnect VPN", desc: "Secure remote access for your team — work from home or anywhere with enterprise-grade encrypted VPN, managed for you." },
+  { icon: "🔗", name: "Site-to-Site VPN", desc: "Connect multiple offices or branches securely over the internet. Automatic mesh VPN between all your Meraki sites." },
+  { icon: "🔧", name: "Proactive Managed Service", desc: "We monitor and maintain your Meraki gateway around the clock. Security updates, alerts, and troubleshooting — handled." },
 ];
 
 export default function BusinessInternetPage() {
   return (
     <div className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header — security-led */}
         <div className="text-center mb-14">
           <div className="flex justify-center gap-2 mb-4">
             <span className="inline-block bg-accent/10 text-accent border border-accent/20 text-sm px-3 py-1 rounded-full">Aussie Broadband Network</span>
-            <span className="inline-block bg-accent/10 text-accent border border-accent/20 text-sm px-3 py-1 rounded-full">Cisco Meraki Security</span>
+            <span className="inline-block bg-accent/10 text-accent border border-accent/20 text-sm px-3 py-1 rounded-full">Cisco Meraki Security Included</span>
           </div>
           <h1 className="text-4xl font-bold text-primary mb-4">Business Internet</h1>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            NBN business internet with a Cisco Meraki Secure Gateway built in. You get fast, reliable internet AND enterprise-grade security — in one monthly price.
+            This isn&apos;t just a broadband plan — it&apos;s a fully managed connection with enterprise Cisco Meraki security built in. Every plan includes the full security stack, nbn eSLA, and 24/7 Australian support. One monthly price, no surprises.
           </p>
+          <div className="mt-6 inline-block bg-primary/5 border border-primary/10 rounded-xl px-6 py-3 text-primary font-semibold">
+            Same nbn network as Aussie Broadband — with Cisco Meraki security built in. One managed service. One bill.
+          </div>
+        </div>
+
+        {/* Security features — above pricing */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-primary mb-3 text-center">Cisco Meraki Secure Gateway — included in every plan</h2>
+          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">
+            Most business internet providers send you a modem and leave security up to you. Every Calystro plan comes with a fully managed Cisco Meraki gateway — enterprise-grade protection baked in from day one, at no extra cost.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {securityFeatures.map((f) => (
+              <div key={f.name} className="bg-bg-light rounded-xl p-5 hover:shadow-md transition-shadow">
+                <div className="text-3xl mb-3">{f.icon}</div>
+                <h3 className="font-semibold text-primary mb-2">{f.name}</h3>
+                <p className="text-gray-500 text-sm">{f.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Pricing cards */}
+        <div className="mb-4">
+          <h2 className="text-2xl font-bold text-primary text-center mb-3">Choose your plan</h2>
+          <p className="text-gray-500 text-center mb-8 max-w-xl mx-auto">No setup fees. No surprises. Every plan includes the full Cisco Meraki security stack, unlimited data, static IPv4, and nbn eSLA.</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {plans.map((plan) => (
             <div
@@ -124,26 +148,21 @@ export default function BusinessInternetPage() {
 
         <p className="text-center text-gray-400 text-sm mb-16">All plans include unlimited data, static IPv4, and Cisco Meraki Secure Gateway. No setup fees.</p>
 
-        {/* Security features */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-primary mb-3 text-center">Cisco Meraki Secure Gateway — included in every plan</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">
-            Every Business Internet plan comes with a fully managed Cisco Meraki gateway. That means enterprise-grade network security is baked in — not an optional extra.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {securityFeatures.map((f) => (
-              <div key={f.name} className="bg-bg-light rounded-xl p-5 hover:shadow-md transition-shadow">
-                <div className="text-3xl mb-3">{f.icon}</div>
-                <h3 className="font-semibold text-primary mb-2">{f.name}</h3>
-                <p className="text-gray-500 text-sm">{f.desc}</p>
-              </div>
-            ))}
+        {/* 4G Backup callout */}
+        <div className="bg-accent/10 border border-accent/20 rounded-2xl p-8 mb-12 flex gap-6 items-start">
+          <div className="text-4xl flex-shrink-0">📶</div>
+          <div>
+            <h2 className="text-xl font-bold text-primary mb-2">4G Backup — add resilience for $25/mo</h2>
+            <p className="text-gray-600 leading-relaxed">
+              If your nbn connection drops, 4G backup automatically keeps your business online — no manual intervention required. For businesses where every minute of downtime costs money, it&apos;s the cheapest insurance you can buy. Available as an add-on on any Calystro internet plan.
+            </p>
           </div>
         </div>
 
         {/* eSLA explainer */}
         <div className="bg-bg-light rounded-2xl p-8 mb-12">
           <h2 className="text-xl font-bold text-primary mb-4">Understanding nbn eSLA</h2>
+          <p className="text-gray-500 text-sm mb-6">eSLA (Enhanced Service Level Agreement) sets faster fault restoration targets than standard residential or basic business plans. If something goes wrong, a technician is dispatched faster and your fix is prioritised.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold text-primary mb-2">Enhanced-12 eSLA</h3>
@@ -159,7 +178,8 @@ export default function BusinessInternetPage() {
         {/* CTA */}
         <div className="bg-primary rounded-2xl p-10 text-center text-white">
           <h2 className="text-2xl font-bold mb-3">Ready for secure, business-grade internet?</h2>
-          <p className="text-blue-200 mb-6">Check availability at your address and get a quote.</p>
+          <p className="text-blue-200 mb-2">Check availability at your address and get a quote.</p>
+          <p className="text-blue-300 text-sm mb-6">No setup fees. No surprises.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/get-started" className="bg-accent hover:bg-cyan-400 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
               Check Availability

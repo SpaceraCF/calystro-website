@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Small Call Centre",
-  description: "Handle customer calls professionally with Cisco Webex call queues, routing, and management — without the enterprise price tag.",
+  title: "Small Call Centre Solution Australia",
+  description:
+    "Affordable, cloud-based call centre for small Australian businesses. Queue management, reporting, and Cisco-powered reliability. No big-business price tag.",
+  alternates: {
+    canonical: "https://calystro.com/solutions/small-call-centre",
+  },
+  openGraph: {
+    title: "Small Call Centre Solution Australia | Calystro",
+    description:
+      "Affordable, cloud-based call centre for small Australian businesses. Queue management, reporting, and Cisco-powered reliability. No big-business price tag.",
+    url: "https://calystro.com/solutions/small-call-centre",
+  },
 };
 
 export default function SmallCallCentrePage() {

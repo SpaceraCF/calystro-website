@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Workplace Calling",
-  description: "Replace your old business phone system with Cisco Webex cloud calling. Perfect for healthcare, financial services, and hospitality.",
+  title: "Office Phone System for Australian Business",
+  description:
+    "Replace your ageing office phone system with Cisco Webex cloud calling. Crystal-clear calls, auto-attendant, and flexible features from $15/user/month.",
+  alternates: {
+    canonical: "https://calystro.com/solutions/workplace-calling",
+  },
+  openGraph: {
+    title: "Office Phone System for Australian Business | Calystro",
+    description:
+      "Replace your ageing office phone system with Cisco Webex cloud calling. Crystal-clear calls, auto-attendant, and flexible features from $15/user/month.",
+    url: "https://calystro.com/solutions/workplace-calling",
+  },
 };
 
 export default function WorkplaceCallingPage() {

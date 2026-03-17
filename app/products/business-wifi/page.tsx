@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Business Wi-Fi – Cisco Meraki",
-  description: "Enterprise-grade Cisco Meraki Wi-Fi designed, built, managed, and maintained by Calystro for Australian businesses.",
+  title: "Managed Business Wi-Fi Australia | Cisco Meraki",
+  description:
+    "Enterprise Cisco Meraki Wi-Fi designed, installed and managed for Australian businesses. Dead zones fixed. 24/7 monitoring. Single site or multi-site.",
+  alternates: {
+    canonical: "https://calystro.com/products/business-wifi",
+  },
+  openGraph: {
+    title: "Managed Business Wi-Fi Australia | Cisco Meraki | Calystro",
+    description:
+      "Enterprise Cisco Meraki Wi-Fi designed, installed and managed for Australian businesses. Dead zones fixed. 24/7 monitoring. Single site or multi-site.",
+    url: "https://calystro.com/products/business-wifi",
+  },
 };
 
 const services = [

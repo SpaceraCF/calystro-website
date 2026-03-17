@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All Products",
-  description: "Calystro's full range of cloud technology products for Australian businesses — calling, internet, and Wi-Fi.",
+  title: "Business Internet, Calling & Wi-Fi Products | Calystro",
+  description:
+    "Calystro's full range of managed cloud technology products for Australian businesses — business internet with security, cloud calling, and enterprise Wi-Fi.",
+  alternates: {
+    canonical: "https://calystro.com/all-products",
+  },
+  openGraph: {
+    title: "Business Internet, Calling & Wi-Fi Products | Calystro",
+    description:
+      "Calystro's full range of managed cloud technology products for Australian businesses — business internet with security, cloud calling, and enterprise Wi-Fi.",
+    url: "https://calystro.com/all-products",
+  },
 };
 
 export default function AllProductsPage() {

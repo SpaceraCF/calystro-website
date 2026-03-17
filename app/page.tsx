@@ -2,9 +2,36 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calystro – Cloud Technology for Australian Business",
-  description: "Calystro helps Australian businesses deliver excellent customer outcomes through secure, reliable cloud-based technology.",
+  title: "Business Internet, Calling & Wi-Fi | Calystro Australia",
+  description: "Managed internet with Cisco Meraki security, cloud calling and Wi-Fi for Australian SMBs. No setup fees. 24/7 AU support. Get a quote today.",
 };
+
+const faqs = [
+  {
+    q: "What's the difference between a business NBN plan and a residential one?",
+    a: "Business NBN plans include features residential plans don't — like nbn eSLA (Enhanced Service Level Agreement), which means faster fault restoration targets if something goes wrong. Business plans also typically come with dedicated support lines, static IP addresses, and higher priority on the network during peak hours. If your business depends on the internet to operate, a proper business plan protects you. Calystro includes eSLA as standard on all internet plans.",
+  },
+  {
+    q: "What is an nbn eSLA and why does my business need it?",
+    a: "eSLA stands for Enhanced Service Level Agreement. It's an agreement between nbn and your provider that sets faster timeframes for fixing faults — typically within 4–12 hours, compared to standard residential restoration targets that can stretch to several days. If your internet goes down, the eSLA means a technician is dispatched faster and the fix is prioritised. For any business where downtime costs money, it's essential. Calystro includes eSLA on every business internet plan.",
+  },
+  {
+    q: "Is the security really included, or is it an add-on?",
+    a: "It's genuinely included — not a trial, not a footnote. Every Calystro business internet plan comes with the full Cisco Meraki security stack: enterprise firewall, VPN, and malware protection, managed by us. Most business internet providers send you a modem and leave security up to you. We don't. Your connection is protected from day one, without extra cost or extra complexity.",
+  },
+  {
+    q: "Can we keep our existing phone numbers when switching?",
+    a: "Yes. Calystro manages the number porting process as part of your setup. Your existing landline and direct dial numbers transfer across to Webex cloud calling, so there's no disruption to clients or operations. We handle the coordination with your current provider, so you don't have to.",
+  },
+  {
+    q: "What happens if something goes wrong? Who do I call?",
+    a: "You call Calystro — one number, any time, 24/7. Our Australian-based support team handles everything, including liaising with nbn, Aussie Broadband, and Cisco on your behalf. You never need to navigate carrier hold queues yourself. If it's a network fault, we're chasing it. If it's a phone system issue, we're on it. One point of contact, end to end.",
+  },
+  {
+    q: "Are there lock-in contracts or setup fees?",
+    a: "No setup fees on any Calystro plan. Contract terms vary by product — we'll be upfront about that before you commit. Our business internet plans come with nbn service terms consistent with the industry standard, and we'll explain everything clearly at the quote stage. No hidden fees, no bill shock.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -18,15 +45,15 @@ export default function HomePage() {
               <span className="bg-accent/20 text-accent border border-accent/30 text-sm px-3 py-1 rounded-full">Cisco Authorized Partner</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Cloud technology built for{" "}
-              <span className="text-accent">Australian business</span>
+              Business internet that comes with its own{" "}
+              <span className="text-accent">security team.</span>
             </h1>
             <p className="text-lg md:text-xl text-blue-200 mb-8 leading-relaxed">
-              Calystro helps Australian businesses deliver excellent customer outcomes through secure, reliable cloud-based technology. Business calling, internet and Wi-Fi — delivered as a service.
+              Full Cisco Meraki firewall, VPN and malware protection — included in every plan. No extras, no IT headaches. Just fast, secure, managed connectivity for your business.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/get-started" className="bg-accent hover:bg-cyan-400 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors">
-                Get Started
+                Get a Quote
               </Link>
               <Link href="/all-products" className="border border-white hover:border-accent hover:text-accent text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors">
                 View Products
@@ -36,27 +63,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust signals */}
+      {/* Trust signal strip */}
       <section className="bg-bg-light py-10 px-4 border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary">30+</div>
-              <div className="text-gray-500 text-sm mt-1">Years Experience</div>
+              <div className="text-2xl font-bold text-primary mb-1">🏆 Cisco Certified Partner</div>
+              <div className="text-gray-500 text-sm">Enterprise technology, without the enterprise price tag.</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary">100%</div>
-              <div className="text-gray-500 text-sm mt-1">Australian Owned</div>
+              <div className="text-2xl font-bold text-primary mb-1">🇦🇺 100% Australian-Owned</div>
+              <div className="text-gray-500 text-sm">Built in Australia, run by Australians, supporting Australian businesses.</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary">Cisco</div>
-              <div className="text-gray-500 text-sm mt-1">Authorized Partner</div>
+              <div className="text-2xl font-bold text-primary mb-1">📅 30+ Years Telco Experience</div>
+              <div className="text-gray-500 text-sm">We&apos;ve seen every network problem. We know how to fix them fast.</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary">ABB</div>
-              <div className="text-gray-500 text-sm mt-1">Network Partner</div>
+              <div className="text-2xl font-bold text-primary mb-1">🎧 24/7 Australian Support</div>
+              <div className="text-gray-500 text-sm">Real people, based in Australia, available any time you need us.</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Competitive positioning */}
+      <section className="bg-primary text-white py-10 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-lg md:text-xl font-semibold text-blue-100 max-w-3xl mx-auto">
+            Same nbn network as Aussie Broadband — with Cisco Meraki security built in. One managed service. One bill.
+          </p>
         </div>
       </section>
 
@@ -87,7 +123,7 @@ export default function HomePage() {
                 <span className="text-2xl">🌐</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Business Internet</h3>
-              <p className="text-blue-200 mb-4 leading-relaxed">NBN with built-in Cisco Meraki security gateway. Intrusion prevention, malware protection, unlimited data. From $190/mo.</p>
+              <p className="text-blue-200 mb-4 leading-relaxed">NBN with built-in Cisco Meraki security gateway. Intrusion prevention, malware protection, VPN, and more. From $190/mo.</p>
               <div className="text-sm text-blue-300 mb-5">Aussie Broadband + Cisco Meraki</div>
               <Link href="/products/business-internet" className="text-accent font-semibold hover:underline">
                 See plans →
@@ -100,7 +136,7 @@ export default function HomePage() {
                 <span className="text-2xl">📡</span>
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Business Wi-Fi</h3>
-              <p className="text-gray-500 mb-4 leading-relaxed">Enterprise Cisco Meraki Wi-Fi designed, built, and managed for your business. Design, Build, Manage & Fix.</p>
+              <p className="text-gray-500 mb-4 leading-relaxed">Enterprise Cisco Meraki Wi-Fi designed, built, and managed for your business. Design, Build, Manage &amp; Fix.</p>
               <div className="text-sm text-gray-400 mb-5">Powered by Cisco Meraki</div>
               <Link href="/products/business-wifi" className="text-accent font-semibold hover:underline">
                 Get a quote →
@@ -181,7 +217,7 @@ export default function HomePage() {
                 <div className="flex gap-4">
                   <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">✓</div>
                   <div>
-                    <div className="font-semibold text-primary">Cisco Authorized Partner</div>
+                    <div className="font-semibold text-primary">Cisco Select Provider + Select Integrator</div>
                     <div className="text-gray-500 text-sm mt-1">Direct access to Cisco&apos;s latest products, licensing, and support — with Calystro&apos;s expertise on top.</div>
                   </div>
                 </div>
@@ -217,6 +253,35 @@ export default function HomePage() {
                   Get a Quote Online
                 </Link>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-bg-light py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Common questions</h2>
+            <p className="text-gray-500 text-lg">Everything Australian businesses ask before switching to Calystro.</p>
+          </div>
+          <div className="space-y-5">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="bg-white rounded-2xl p-7 border border-gray-100">
+                <h3 className="font-bold text-primary mb-3 text-lg">{faq.q}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-gray-500 mb-4">Still have questions?</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="tel:0272293600" className="bg-primary hover:bg-blue-900 text-white px-6 py-2.5 rounded-lg font-medium transition-colors">
+                Call 02 7229 3600
+              </a>
+              <Link href="/get-started" className="bg-accent hover:bg-cyan-400 text-white px-6 py-2.5 rounded-lg font-medium transition-colors">
+                Get a Quote
+              </Link>
             </div>
           </div>
         </div>

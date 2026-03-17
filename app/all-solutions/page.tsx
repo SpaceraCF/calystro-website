@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All Solutions",
-  description: "Industry-focused cloud technology solutions for Australian businesses — from professional services to manufacturing, retail, healthcare, and hospitality.",
+  title: "Business Technology Solutions by Industry | Calystro",
+  description:
+    "Industry-focused cloud technology solutions for Australian businesses — work from anywhere, secure workspace, workplace calling, and small call centre.",
+  alternates: {
+    canonical: "https://calystro.com/all-solutions",
+  },
+  openGraph: {
+    title: "Business Technology Solutions by Industry | Calystro",
+    description:
+      "Industry-focused cloud technology solutions for Australian businesses — work from anywhere, secure workspace, workplace calling, and small call centre.",
+    url: "https://calystro.com/all-solutions",
+  },
 };
 
 const solutions = [

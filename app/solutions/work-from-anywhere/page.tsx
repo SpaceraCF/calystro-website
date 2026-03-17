@@ -2,8 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work from Anywhere",
-  description: "Enable your team to work from any location with Calystro's cloud calling, secure internet, and Cisco Meraki networking.",
+  title: "Work from Anywhere Phone & Internet",
+  description:
+    "Give your team the tools to work from anywhere. Cloud calling, secure VPN, and managed internet that keeps remote and hybrid teams connected and protected.",
+  alternates: {
+    canonical: "https://calystro.com/solutions/work-from-anywhere",
+  },
+  openGraph: {
+    title: "Work from Anywhere Phone & Internet | Calystro Australia",
+    description:
+      "Give your team the tools to work from anywhere. Cloud calling, secure VPN, and managed internet that keeps remote and hybrid teams connected and protected.",
+    url: "https://calystro.com/solutions/work-from-anywhere",
+  },
 };
 
 export default function WorkFromAnywherePage() {
