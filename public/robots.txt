@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /board/
 
 Sitemap: https://calystro.com/sitemap.xml
